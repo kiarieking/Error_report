@@ -1,12 +1,12 @@
 import re
 from pathlib import Path
 
-LOG_FILE = "/var/log/odoo15/odoo15.log"
+LOG_FILE = "/var/log/nginx/access.log"
 OUTPUT_FILE = "/home/kkiarie/code/error_report/error_only.log"
 
 ERROR_PATTERNS = [
 
-    r"\bFileNotFoundError\b",
+    r"\bHEAD\b",
     r"\bCRICTICAL\b",
     r"\bWARNING\b",
 ]
