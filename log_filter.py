@@ -1,13 +1,14 @@
 import re
 from pathlib import Path
 
-LOG_FILE = "/var/log/postgresql/postgresql-17-main.log"
+LOG_FILE = "/var/log/odoo15/odoo15.log"
 OUTPUT_FILE = "/home/kkiarie/code/error_report/error_only.log"
 
 ERROR_PATTERNS = [
 
-    r"\bERROR\B",
-    r"\bCRICTICAL",
+    r"\bFileNotFoundError\b",
+    r"\bCRICTICAL\b",
+    r"\bWARNING\b",
 ]
 
 def is_error(line: str)->bool:
