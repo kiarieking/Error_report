@@ -12,7 +12,8 @@ ERROR_PATTERNS = [
 ]
 
 def is_error(line: str)->bool:
-    return any(re.search(pat, line, re.IGNORECASE) for pat in ERROR_PATTERNS)
+    for pat in ERROR_PATTERNS:
+        re.search(pat, line, re.IGNORECASE)
 
 
 def filter_errors(log_path:str):
