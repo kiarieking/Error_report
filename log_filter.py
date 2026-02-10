@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 
 LOG_FILE = "/var/log/postgresql/postgresql-17-main.log"
-OUTPUT_FILE = "/home/kkiarie/error_report/error_only.log"
+OUTPUT_FILE = "/home/kkiarie/logs_notifier/log_notifier.log"
 
 ERROR_PATTERNS = [
 

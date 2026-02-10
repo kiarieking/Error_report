@@ -1,0 +1,9 @@
+2026-02-09 07:33:49.791 UTC [3198477] rep_user@odoo14sandbox STATEMENT:  START_REPLICATION SLOT "my_subscription" LOGICAL 1/76D28A30 (proto_version '1', publication_names '"my_publication"')
+2026-02-09 07:33:49.793 UTC [3198477] rep_user@odoo14sandbox STATEMENT:  START_REPLICATION SLOT "my_subscription" LOGICAL 1/76D28A30 (proto_version '1', publication_names '"my_publication"')
+2026-02-09 07:33:49.794 UTC [3198477] rep_user@odoo14sandbox STATEMENT:  START_REPLICATION SLOT "my_subscription" LOGICAL 1/76D28A30 (proto_version '1', publication_names '"my_publication"')
+2026-02-09 08:47:04.195 UTC [3199256] postgres@postgres ERROR:  subscription "my_subscription" does not exist
+2026-02-09 08:47:04.195 UTC [3199256] postgres@postgres STATEMENT:  ALTER SUBSCRIPTION my_subscription DISABLE;
+2026-02-09 08:47:19.031 UTC [3199278] postgres@odoo15sandbox ERROR:  subscription "my_subscription" does not exist
+2026-02-09 08:47:19.031 UTC [3199278] postgres@odoo15sandbox STATEMENT:  ALTER SUBSCRIPTION my_subscription DISABLE;
+2026-02-09 08:49:03.116 UTC [3198477] rep_user@odoo14sandbox STATEMENT:  START_REPLICATION SLOT "my_subscription" LOGICAL 1/76D28A30 (proto_version '1', publication_names '"my_publication"')
+2026-02-09 08:49:03.116 UTC [3198477] rep_user@odoo14sandbox STATEMENT:  START_REPLICATION SLOT "my_subscription" LOGICAL 1/76D28A30 (proto_version '1', publication_names '"my_publication"')

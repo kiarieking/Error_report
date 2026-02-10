@@ -10,7 +10,7 @@ msg["From"] = sender_email
 msg["To"] = receiver_email
 msg["Subject"] = "Log Alert: Error Detected in Logs"
 msg.set_content("An error has been detected in the logs. Please check the attached log file for details.")
-with open("/home/kkiarie/code/logs_notifier/log_notifier.log", "r") as f:
+with open("/home/kkiarie/logs_notifier/log_notifier.log", "r") as f:
     log_content = f.read()
 msg.add_attachment(log_content, filename="error_only.log") 
 
