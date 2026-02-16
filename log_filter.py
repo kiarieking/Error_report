@@ -1,8 +1,18 @@
 import re
 from pathlib import Path
 from email_notification import EmailNotifier
+from dotenv import load_dotenv
+import os
 
-LOG_FILE = "/var/log/postgresqls/postgresql-17-main.log"
+sender_email = os.getenv("SENDER_EMAIL")
+receiver_email = os.getenv("RECIPIENT_EMAIL")
+app_password = os.getenv("APP_PASSWORD")
+
+print(f"Sender Email: {sender_email}")
+print(f"Receiver Email: {receiver_email}")
+print(f"App Password: {app_password}")
+
+LOG_FILE = "/var/log/postgresql/postgresql-17-main.log"
 OUTPUT_FILE = "/home/kkiarie/logs_notifier/log_notifier.log"
 
 ERROR_PATTERNS = [
@@ -32,8 +42,8 @@ def filter_errors(log_path:str):
 
     print(f"Filtered errors Written to to {OUTPUT_FILE}")
 
-    email_notification = EmailNotifier(sender_email="kiariekevin22@gmail.com",app_password="zfyu sang zeuc ycvg")
-    email_notification.send_email(receiver_email="kelvin.kiarie@quatrixglobal.com",subject="Log Alert: Error Detected in Logs",
+    email_notification = EmailNotifier(sender_email=sender_email,app_password="zfyu sang zeuc ycvg")
+    email_notification.send_email(receiver_email=receiver_email,subject="Log Alert: Error Detected in Logs",
     body="An error has been detected in the logs. Please check the attached log file for details."
     ,attachment_path=OUTPUT_FILE)
 
