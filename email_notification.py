@@ -1,21 +1,44 @@
 import smtplib
 from email.message import EmailMessage
 
-sender_email = 'kiariekevin22@gmail.com'
-receiver_email = 'kelvin.kiarie@quatrixglobal.com'
-app_password = 'zfyu sang zeuc ycvg'
+# sender_email = 'kiariekevin22@gmail.com'
+# receiver_email = 'kelvin.kiarie@quatrixglobal.com'
+# app_password = 'zfyu sang zeuc ycvg'
 
-msg =  EmailMessage()
-msg["From"] = sender_email
-msg["To"] = receiver_email
-msg["Subject"] = "Log Alert: Error Detected in Logs"
-msg.set_content("An error has been detected in the logs. Please check the attached log file for details.")
-with open("/home/kkiarie/logs_notifier/log_notifier.log", "r") as f:
-    log_content = f.read()
-msg.add_attachment(log_content, filename="error_only.log") 
+# msg =  EmailMessage()
+# msg["From"] = sender_email
+# msg["To"] = receiver_email
+# msg["Subject"] = "Log Alert: Error Detected in Logs"
+# msg.set_content("An error has been detected in the logs. Please check the attached log file for details.")
+# with open("/home/kkiarie/logs_notifier/log_notifier.log", "r") as f:
+#     log_content = f.read()
+# msg.add_attachment(log_content, filename="error_only.log") 
 
-with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-    server.login(sender_email, app_password)
-    server.send_message(msg)
+# with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+#     server.login(sender_email, app_password)
+#     server.send_message(msg)
 
-print("Email sent successfully!")
+# print("Email sent successfully!")
+
+class EmailNotifier:
+        def __init__(self,sender_email,app_password):
+            self.sender_email = sender_email
+            self.app_password = app_password
+
+        def send_email(self,receiver_email,subject,body,attachment_path=None):
+            msg = EmailMessage()
+            msg["From"] = self.sender_email
+            msg["To"] = receiver_email
+            msg["Subject"] = subject
+            msg.set_content(body)
+
+            if attachment_path:
+                with open(attachment_path,"r") as f:
+                    log_content = f.read()
+                msg.add_attachment(log_content, filename="error_only.log")
+
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                server.login(self.sender_email, self.app_password)
+                server.send_message(msg)
+
+            print("Email sent successfully!")
