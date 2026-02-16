@@ -2,6 +2,7 @@ import re
 from pathlib import Path
 from email_notification import EmailNotifier
 from dotenv import load_dotenv
+from datetime import datetime
 import os
 
 load_dotenv()
@@ -20,7 +21,8 @@ OUTPUT_FILE = "/home/kkiarie/logs_notifier/log_notifier.log"
 ERROR_PATTERNS = [
 
     r"\bERROR\b",
-    r"\bSTATEMENT\b",
+    r"\bstarting PostgreSQL\b",
+    r"\bshutting down\b",
     
     ]
 
@@ -33,12 +35,15 @@ def is_error(line: str)->bool:
 
 def filter_errors(log_path:str):
     log_path = Path(log_path)
+    today = datetime.utcnow().strftime("%Y-%m-%d")
 
     if not log_path.exists():
         raise FileNotFoundError(f"{log_path} dos not exist")
     
     with log_path.open("r", errors="ignore") as log, open(OUTPUT_FILE,"w") as out:
         for line in log:
+            if not line.startswith(today):
+                continue
             if is_error(line):
                 out.write(line)
 
