@@ -1,0 +1,14 @@
+2026-02-16 09:04:26.232 UTC [218614] LOG:  shutting down
+2026-02-16 09:04:26.261 UTC [3297674] kkiarie@odoo15sandbox FATAL:  the database system is shutting down
+2026-02-16 09:04:26.273 UTC [3297675] kkiarie@odoo15sandbox FATAL:  the database system is shutting down
+2026-02-16 09:04:34.558 UTC [3299483] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-02-16 09:07:06.641 UTC [3304166] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-02-16 09:19:56.547 UTC [3304167] LOG:  shutting down
+2026-02-16 09:19:56.763 UTC [3314406] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-02-16 09:31:29.248 UTC [3314407] LOG:  shutting down
+2026-02-16 09:33:46.254 UTC [3363822] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-02-16 09:38:49.942 UTC [3375536] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-02-16 13:14:44.661 UTC [3375537] LOG:  shutting down
+2026-02-16 13:14:44.864 UTC [3403162] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-02-16 13:20:46.043 UTC [3403163] LOG:  shutting down
+2026-02-16 13:27:55.524 UTC [3404322] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit

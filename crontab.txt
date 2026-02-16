@@ -1,0 +1,1 @@
+0 7 * * * </path/to/virtual/environment>  /path/to/project/logs_notifier/log_filter.py >> /var/log/log_notifier/log_notifier.log 2>&1
