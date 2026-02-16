@@ -4,6 +4,8 @@ from email_notification import EmailNotifier
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 sender_email = os.getenv("SENDER_EMAIL")
 receiver_email = os.getenv("RECIPIENT_EMAIL")
 app_password = os.getenv("APP_PASSWORD")
@@ -42,7 +44,7 @@ def filter_errors(log_path:str):
 
     print(f"Filtered errors Written to to {OUTPUT_FILE}")
 
-    email_notification = EmailNotifier(sender_email=sender_email,app_password="zfyu sang zeuc ycvg")
+    email_notification = EmailNotifier(sender_email=sender_email,app_password=app_password)
     email_notification.send_email(receiver_email=receiver_email,subject="Log Alert: Error Detected in Logs",
     body="An error has been detected in the logs. Please check the attached log file for details."
     ,attachment_path=OUTPUT_FILE)
