@@ -26,13 +26,13 @@ class EmailNotifier:
                         print(f"Error reading file: {e}")
                         return
 
-            try:
+                try:
 
-                with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-                    server.login(self.sender_email, self.app_password)
-                    server.send_message(msg)
+                    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                        server.login(self.sender_email, self.app_password)
+                        server.send_message(msg)
 
-                print("Email sent successfully!")
+                    print("Email sent successfully!")
 
                 except smtplib.SMTPAuthenticationError:
                     print("Authentication failed. Please check your email and app password.")
