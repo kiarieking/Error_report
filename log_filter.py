@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 from email_notification import EmailNotifier
 
-LOG_FILE = "/var/log/postgresql/postgresql-17-main.log"
+LOG_FILE = "/var/log/postgresqls/postgresql-17-main.log"
 OUTPUT_FILE = "/home/kkiarie/logs_notifier/log_notifier.log"
 
 ERROR_PATTERNS = [

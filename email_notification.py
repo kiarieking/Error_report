@@ -1,25 +1,6 @@
 import smtplib
 from email.message import EmailMessage
 
-# sender_email = 'kiariekevin22@gmail.com'
-# receiver_email = 'kelvin.kiarie@quatrixglobal.com'
-# app_password = 'zfyu sang zeuc ycvg'
-
-# msg =  EmailMessage()
-# msg["From"] = sender_email
-# msg["To"] = receiver_email
-# msg["Subject"] = "Log Alert: Error Detected in Logs"
-# msg.set_content("An error has been detected in the logs. Please check the attached log file for details.")
-# with open("/home/kkiarie/logs_notifier/log_notifier.log", "r") as f:
-#     log_content = f.read()
-# msg.add_attachment(log_content, filename="error_only.log") 
-
-# with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-#     server.login(sender_email, app_password)
-#     server.send_message(msg)
-
-# print("Email sent successfully!")
-
 class EmailNotifier:
         def __init__(self,sender_email,app_password):
             self.sender_email = sender_email
@@ -32,13 +13,37 @@ class EmailNotifier:
             msg["Subject"] = subject
             msg.set_content(body)
 
-            if attachment_path:
-                with open(attachment_path,"r") as f:
-                    log_content = f.read()
-                msg.add_attachment(log_content, filename="error_only.log")
+            try:
+                if attachment_path:
+                    try:
+                        with open(attachment_path,"r") as f:
+                            log_content = f.read()
+                        msg.add_attachment(log_content, filename="error_only.log")
+                    except FileNotFoundError:
+                        print(f"Attachment file not found: {attachment_path}")
+                        return
+                    except Exception as e:
+                        print(f"Error reading file: {e}")
+                        return
 
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-                server.login(self.sender_email, self.app_password)
-                server.send_message(msg)
+            try:
 
-            print("Email sent successfully!")
+                with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                    server.login(self.sender_email, self.app_password)
+                    server.send_message(msg)
+
+                print("Email sent successfully!")
+
+                except smtplib.SMTPAuthenticationError:
+                    print("Authentication failed. Please check your email and app password.")
+                except smtplib.SMTPException as e:
+                    print(f"SMTP error occurred: {e}")
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+
+            except Exception as e:
+                print(f"An error occurred while sending email: {e}")
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+
+
