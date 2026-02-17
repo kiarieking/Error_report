@@ -1,14 +1,10 @@
-2026-02-16 09:04:26.232 UTC [218614] LOG:  shutting down
-2026-02-16 09:04:26.261 UTC [3297674] kkiarie@odoo15sandbox FATAL:  the database system is shutting down
-2026-02-16 09:04:26.273 UTC [3297675] kkiarie@odoo15sandbox FATAL:  the database system is shutting down
-2026-02-16 09:04:34.558 UTC [3299483] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
-2026-02-16 09:07:06.641 UTC [3304166] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
-2026-02-16 09:19:56.547 UTC [3304167] LOG:  shutting down
-2026-02-16 09:19:56.763 UTC [3314406] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
-2026-02-16 09:31:29.248 UTC [3314407] LOG:  shutting down
-2026-02-16 09:33:46.254 UTC [3363822] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-2026-02-16 09:38:49.942 UTC [3375536] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-2026-02-16 13:14:44.661 UTC [3375537] LOG:  shutting down
-2026-02-16 13:14:44.864 UTC [3403162] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
-2026-02-16 13:20:46.043 UTC [3403163] LOG:  shutting down
-2026-02-16 13:27:55.524 UTC [3404322] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-02-17 11:58:16.596 UTC [3404323] LOG:  shutting down
+2026-02-17 11:58:31.418 UTC [3423989] LOG:  starting PostgreSQL 17.8 (Debian 17.8-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-02-17 00:38:39,493 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 00:38:39] "GET /.env HTTP/1.0" 404 - 10 0.006 0.016
+2026-02-17 01:24:01,672 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 01:24:01] "GET /robots.txt HTTP/1.0" 404 - 11 0.013 0.046
+2026-02-17 01:24:02,802 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 01:24:02] "GET /robots.txt HTTP/1.0" 404 - 11 0.006 0.016
+2026-02-17 08:47:25,186 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 08:47:25] "GET /robots.txt HTTP/1.0" 404 - 11 0.011 0.020
+2026-02-17 11:43:02,675 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 11:43:02] "GET /robots.txt HTTP/1.0" 404 - 11 0.008 0.019
+2026-02-17 11:58:16,589 3375185 ERROR ? odoo.addons.bus.models.bus: Bus.loop error, sleep and retry 
+2026-02-17 11:58:30,969 3375185 WARNING odoo15sandbox odoo.http: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. 
+2026-02-17 11:58:30,971 3375185 INFO odoo15sandbox werkzeug: 127.0.0.1 - - [17/Feb/2026 11:58:30] "POST /longpolling/poll HTTP/1.0" 404 - 0 0.000 0.004

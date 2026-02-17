@@ -30,17 +30,17 @@ def is_error(line: str)->bool:
     return False
 
 
-def filter_errors(log_path:str):
+def filter_errors():
     for i in range(len(log_paths)):
 
-        log_path = Path(log_path)
+        log_path = Path(log_paths[i])
         today = datetime.utcnow().strftime("%Y-%m-%d")
 
         if not log_path.exists():
             raise FileNotFoundError(f"{log_path} dos not exist")
         
         try:
-            with log_path.open("r", errors="ignore") as log, open(output_file,"w") as out:
+            with log_path.open("r", errors="ignore") as log, open(output_file,"a") as out:
                 for line in log:
                     if not line.startswith(today):
                         continue
@@ -52,14 +52,14 @@ def filter_errors(log_path:str):
             print (f"General Error: {e}")
 
 
-    print(f"Filtered errors Written to to {OUTPUT_FILE}")
+    print(f"Filtered errors Written to to {output_file}")
 
     email_notification = EmailNotifier(sender_email=sender_email,app_password=app_password)
     email_notification.send_email(receiver_email=receiver_email,subject="Log Alert: Error Detected in Logs",
     body="An error has been detected in the logs. Please check the attached log file for details."
-        ,attachment_path=OUTPUT_FILE)
+        ,attachment_path=output_file)
 
     print("Email sent successfully!")
 
 if __name__ == "__main__":
-    filter_errors(LOG_FILE)
+    filter_errors()
