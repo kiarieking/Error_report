@@ -12,6 +12,8 @@ receiver_email = os.getenv("RECIPIENT_EMAIL")
 app_password = os.getenv("APP_PASSWORD")
 
 log_paths = [os.getenv("POSTGRES_LOG"),os.getenv("NGINX_LOG"),os.getenv("ODOO_LOG")]
+logs = ["POSTGRES_LOG","NGINX_LOG","ODOO_LOG"]
+
 output_file = os.getenv("OUTPUT_FILE")
 
 ERROR_PATTERNS = [
@@ -41,11 +43,12 @@ def filter_errors():
         
         try:
             with log_path.open("r", errors="ignore") as log, open(output_file,"a") as out:
+                out.write(f"{logs[i]}\n\n")
                 for line in log:
                     if not line.startswith(today):
                         continue
                     if is_error(line):
-                        out.write(line)
+                        out.write(line + "\n")
         except FileNotFoundError as e:
             print(f"Error in filepath: {e}")
         except Exception as e:
