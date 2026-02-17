@@ -33,6 +33,7 @@ def is_error(line: str)->bool:
 
 
 def filter_errors():
+    open(output_file,"w").close()
     for i in range(len(log_paths)):
 
         log_path = Path(log_paths[i])
