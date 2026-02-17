@@ -16,7 +16,7 @@ print(f"Receiver Email: {receiver_email}")
 print(f"App Password: {app_password}")
 
 LOG_FILE = "/var/log/postgresql/postgresql-17-main.log"
-OUTPUT_FILE = "/home/kkiarie/logs_notifier/log_notifier.log"
+OUTPUT_FILE = "/home/kkiaries/logs_notifier/log_notifier.log"
 
 ERROR_PATTERNS = [
 
@@ -40,12 +40,18 @@ def filter_errors(log_path:str):
     if not log_path.exists():
         raise FileNotFoundError(f"{log_path} dos not exist")
     
-    with log_path.open("r", errors="ignore") as log, open(OUTPUT_FILE,"w") as out:
-        for line in log:
-            if not line.startswith(today):
-                continue
-            if is_error(line):
-                out.write(line)
+    try:
+        with log_path.open("r", errors="ignore") as log, open(OUTPUT_FILE,"w") as out:
+            for line in log:
+                if not line.startswith(today):
+                    continue
+                if is_error(line):
+                    out.write(line)
+    except FileNotFoundError as e:
+        print(f"Error in filepath: {e}")
+    except Exception as e:
+        print (f"General Error: {e}")
+
 
     print(f"Filtered errors Written to to {OUTPUT_FILE}")
 
